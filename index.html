@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aryan's Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #7b2ff2 0%, #f357a8 100%);
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s;
+        }
+        header p {
+            font-size: 1.3rem;
+            color: #e0c3fc;
+            animation: fadeInUp 1s;
+        }
+        section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s, transform 0.8s;
+            background: rgba(60, 0, 90, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 32px 0 rgba(60,0,90,0.2);
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h2 {
+            color: #e0c3fc;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .projects a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #e0c3fc;
+            font-size: 1rem;
+            background: rgba(60, 0, 90, 0.2);
+            border-top: 1px solid #e0c3fc33;
+            margin-top: 40px;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            section { padding: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container">
+        <header>
+            <h1>Aryan Sharma</h1>
+            <p>Web Developer & Designer</p>
+        </header>
+        <section class="about">
+            <h2>About Me</h2>
+            <p>
+                Hi! I'm Aryan, a passionate web developer specializing in modern, interactive websites. I love creating beautiful user experiences with HTML, CSS, and JavaScript.
+            </p>
+        </section>
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML5, CSS3, JavaScript</li>
+                <li>React, Vue.js</li>
+                <li>Node.js, Express</li>
+                <li>UI/UX Design</li>
+            </ul>
+        </section>
+        <section class="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li><a href="#">Portfolio Website</a> - Personal showcase site</li>
+                <li><a href="#">E-commerce Store</a> - Online shopping platform</li>
+                <li><a href="#">Blog Platform</a> - Modern blogging solution</li>
+            </ul>
+        </section>
+        <section class="contact">
+            <h2>Contact</h2>
+            <p>Email: aryan@example.com</p>
+            <p>LinkedIn: <a href="#" style="color:#e0c3fc;">linkedin.com/in/aryan</a></p>
+        </section>
+        <footer>
+            &copy; 2024 Aryan Sharma. All rights reserved.
+        </footer>
+    </div>
+    <!-- Particles.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#e0c3fc" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 4, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#e0c3fc", "opacity": 0.3, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "repulse" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "repulse": { "distance": 100, "duration": 0.4 },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+    <!-- Scroll animation -->
+    <script>
+        function revealSections() {
+            const sections = document.querySelectorAll('section');
+            const triggerBottom = window.innerHeight * 0.85;
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < triggerBottom) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
+    </script>
+</body>
+</html>
